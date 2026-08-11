@@ -1260,7 +1260,7 @@ const PROVINCE_CLUB_MAP = {
   '江苏':['nantong_zhiyun'], '南通':['nantong_zhiyun'],
   '河北':['cangzhou'], '辽宁':['liaoning_tieren'], '沈阳':['liaoning_tieren'],
 };
-const HOMETOWN_BONUS = 0.002; // 家乡匹配加权 0.2%
+const HOMETOWN_BONUS = 0.005; // 家乡匹配加权 0.5%
 
 const STATE = {
   currentIndex: 0,
