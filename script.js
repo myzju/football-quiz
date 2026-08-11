@@ -1260,7 +1260,7 @@ const PROVINCE_CLUB_MAP = {
   '江苏':['nantong_zhiyun'], '南通':['nantong_zhiyun'],
   '河北':['cangzhou'], '辽宁':['liaoning_tieren'], '沈阳':['liaoning_tieren'],
 };
-const HOMETOWN_BONUS = 0.02; // 家乡匹配加权 2%
+const HOMETOWN_BONUS = 0.002; // 家乡匹配加权 0.2%
 
 const STATE = {
   currentIndex: 0,
@@ -1509,10 +1509,10 @@ function cosineSimilarity(a, b) {
 
 // 热门球队加权（余弦相似度叠加，小幅提权避免小球队随机胜出）
 const POPULARITY_BONUS = {
-  real_madrid:0.02, barcelona:0.02, man_city:0.02, liverpool:0.02,
-  arsenal:0.02, bayern:0.02, chelsea:0.02, man_utd:0.02,
-  psg:0.02, dortmund:0.02, juventus:0.01, ac_milan:0.01,
-  inter_milan:0.01, zhejiang:0.01, tottenham:0.01,
+  real_madrid:0.002, barcelona:0.002, man_city:0.002, liverpool:0.002,
+  arsenal:0.002, bayern:0.002, chelsea:0.002, man_utd:0.002,
+  psg:0.002, dortmund:0.002, juventus:0.001, ac_milan:0.001,
+  inter_milan:0.001, zhejiang:0.001, tottenham:0.001,
 };
 
 function showResult() {
