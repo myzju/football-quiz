@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="测测你的足球本命主队，100道趣味测试题为你匹配最适合的足球俱乐部！⚽ 涵盖英超、中超、西甲、德甲、意甲、法甲、荷甲、葡超、苏超等90+球队">
+  <title>测测你的足球本命主队</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================ -->
+  <!--  页面容器：统一包裹三页，通过 CSS class 控制显示/隐藏       -->
+  <!-- ============================================================ -->
+  <main id="app">
+
+    <!-- ==================== 启动页 ==================== -->
+    <section id="page-start" class="page active">
+
+      <!-- 背景装饰：足球场线条 -->
+      <div class="bg-pitch"></div>
+
+      <!-- 浮动粒子光点 -->
+      <div class="particles" aria-hidden="true">
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
+        <span class="particle p5"></span>
+        <span class="particle p6"></span>
+      </div>
+
+      <div class="page-content">
+        <!-- Logo / 足球动画 -->
+        <div class="hero-icon" aria-hidden="true">
+          <div class="football-spin">⚽</div>
+          <div class="football-shadow"></div>
+        </div>
+
+        <!-- 标题区 -->
+        <h1 class="hero-title">
+          测测你的<br>足球<span class="accent">本命主队</span>
+        </h1>
+        <p class="hero-subtitle">100道趣味测试题，从全球90+足球俱乐部中找到你的灵魂主队</p>
+
+        <!-- 开始按钮 -->
+        <button id="btn-start" class="btn btn-primary btn-large" type="button">
+          <span class="btn-icon">⚽</span> 开始测试
+        </button>
+
+        <!-- 题量提示 -->
+        <p class="hero-meta">📋 100道题 · ⏱️ 约5分钟 · 🎯 精准匹配</p>
+
+        <!-- 继续上次测试入口（默认隐藏） -->
+        <button id="btn-resume" class="btn btn-ghost" type="button" style="display:none;">
+          📌 继续上次的测试（第 <span id="resume-progress">0</span>/100 题）
+        </button>
+      </div>
+
+      <!-- 底部版本信息 -->
+      <footer class="page-footer">
+        <span>v2.0 · 纯属娱乐 · 数据不会上传</span>
+      </footer>
+    </section>
+
+    <!-- ==================== 答题页 ==================== -->
+    <section id="page-quiz" class="page">
+
+      <!-- 顶部导航栏 -->
+      <header class="quiz-header">
+        <button id="btn-back" class="btn btn-icon" type="button" aria-label="返回">
+          ← 返回
+        </button>
+        <div class="quiz-counter">
+          <span id="current-num">1</span> / <span id="total-num">50</span>
+        </div>
+        <!-- 占位元素，保持flex居中 -->
+        <div class="header-placeholder"></div>
+      </header>
+
+      <!-- 进度条 -->
+      <div class="progress-bar-container">
+        <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+      </div>
+
+      <!-- 题目卡片区域 -->
+      <div class="quiz-content">
+        <!-- 维度标签 -->
+        <span id="category-tag" class="category-tag">价值观</span>
+
+        <!-- 题目卡片 -->
+        <div id="question-card" class="question-card">
+          <p id="question-text" class="question-text"></p>
+        </div>
+
+        <!-- 选项列表 -->
+        <div id="options-list" class="options-list">
+          <!-- JS 动态生成 4 个选项按钮 -->
+        </div>
+
+        <!-- 上一题按钮 -->
+        <div class="quiz-nav">
+          <button id="btn-prev" class="btn btn-ghost btn-sm" type="button" style="display:none;">
+            ← 上一题
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== 结果页 ==================== -->
+    <section id="page-result" class="page">
+
+      <div class="result-content">
+        <!-- 匹配度百分比徽章 -->
+        <div class="match-badge" id="match-badge">
+          <span class="match-percent" id="match-percent">92%</span>
+          <span class="match-label">灵魂契合度</span>
+        </div>
+
+        <!-- 本命主队卡片 -->
+        <div class="result-card" id="result-card">
+          <div class="club-color-strip" id="club-color-strip"></div>
+          <h2 class="club-name" id="club-name"></h2>
+          <p class="club-intro" id="club-intro"></p>
+
+          <!-- 本命理由 -->
+          <div class="reasons" id="reasons-list">
+            <!-- JS 动态生成 3 个标签 -->
+          </div>
+        </div>
+
+        <!-- 6维度雷达图 -->
+        <div class="analysis-section">
+          <h3 class="analysis-title">📊 维度分析</h3>
+          <div class="radar-container">
+            <canvas id="radar-chart" width="300" height="300" aria-label="6维度雷达图" role="img"></canvas>
+          </div>
+        </div>
+
+        <!-- 你也可能适合 -->
+        <div class="also-like-section" id="also-like-section">
+          <h3 class="also-like-title">🤔 你也可能适合…</h3>
+          <div class="also-like-list" id="also-like-list">
+            <!-- JS 动态生成 2~3 支接近球队 -->
+          </div>
+        </div>
+
+        <!-- 操作按钮组 -->
+        <div class="result-actions">
+          <button id="btn-retry" class="btn btn-primary" type="button">
+            🔄 再测一次
+          </button>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>由「测测主队」生成 · 纯属娱乐 · v2.0</span>
+      </footer>
+
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!--  确认弹窗（返回/重测时复用）                                -->
+  <!-- ============================================================ -->
+  <div id="modal-overlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card">
+      <p id="modal-message" class="modal-message"></p>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn btn-secondary btn-sm" type="button">取消</button>
+        <button id="modal-confirm" class="btn btn-primary btn-sm" type="button">确认</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!--  noscript 兜底提示                                          -->
+  <!-- ============================================================ -->
+  <noscript>
+    <div style="color:#fff;text-align:center;padding:40px 20px;font-family:sans-serif;">
+      <h2>⚠️ 请启用 JavaScript</h2>
+      <p>本页面需要 JavaScript 才能运行测试，请在浏览器设置中启用后刷新。</p>
+    </div>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>
