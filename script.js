@@ -679,7 +679,7 @@ const QUESTIONS = [
     { text:'拉玛西亚/卡灵顿——青训圣地的魅力', traits:[0,0,0,5,0,0] }
   ]},
   { id:8, question:'你更欣赏哪种教练风格？', category:'精神气质', options:[
-    { text:'You'll Never Walk Alone——足球因球迷而伟大', traits:[0,0,0,0,5,0] },
+    { text:'You\'ll Never Walk Alone——足球因球迷而伟大', traits:[0,0,0,0,5,0] },
     { text:'高位压迫+快速转换——现代足球的极致美学', traits:[0,0,0,0,0,5] },
     { text:'荣誉室的奖杯数量说明一切', traits:[5,0,0,0,0,0] },
     { text:'热血足球——宁可在冲锋中倒下', traits:[0,5,0,0,0,0] }
@@ -754,7 +754,7 @@ const QUESTIONS = [
     { text:'拉玛西亚/卡灵顿——青训圣地的魅力', traits:[0,0,0,5,0,0] }
   ]},
   { id:21, question:'你更欣赏哪种青训模式？', category:'青训文化', options:[
-    { text:'You'll Never Walk Alone——足球因球迷而伟大', traits:[0,0,0,0,5,0] },
+    { text:'You\'ll Never Walk Alone——足球因球迷而伟大', traits:[0,0,0,0,5,0] },
     { text:'高位压迫+快速转换——现代足球的极致美学', traits:[0,0,0,0,0,5] },
     { text:'荣誉室的奖杯数量说明一切', traits:[5,0,0,0,0,0] },
     { text:'热血足球——宁可在冲锋中倒下', traits:[0,5,0,0,0,0] }
@@ -826,7 +826,7 @@ const QUESTIONS = [
     { text:'拉玛西亚/卡灵顿——青训圣地的魅力', traits:[0,0,0,5,0,0] }
   ]},
   { id:33, question:'你认同"1-0万岁"这种足球哲学吗？', category:'战术风格', options:[
-    { text:'You'll Never Walk Alone——足球因球迷而伟大', traits:[0,0,0,0,5,0] },
+    { text:'You\'ll Never Walk Alone——足球因球迷而伟大', traits:[0,0,0,0,5,0] },
     { text:'高位压迫+快速转换——现代足球的极致美学', traits:[0,0,0,0,0,5] },
     { text:'荣誉室的奖杯数量说明一切', traits:[5,0,0,0,0,0] },
     { text:'热血足球——宁可在冲锋中倒下', traits:[0,5,0,0,0,0] }
