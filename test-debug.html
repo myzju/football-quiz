@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debug — 测测主队</title>
+<style>
+body { font-family: monospace; background:#1a1a2e; color:#eee; padding:20px; }
+.error { color:#ff6b6b; padding:10px; background:#2d0a0a; border-radius:8px; margin:8px 0; }
+.ok { color:#51cf66; }
+.info { color:#74c0fc; }
+</style>
+</head>
+<body>
+<h1>Debug Console</h1>
+<div id="log"></div>
+
+<script>
+const logEl = document.getElementById('log');
+
+function log(msg, type) {
+  const div = document.createElement('div');
+  div.className = type || 'info';
+  div.textContent = '[LOG] ' + msg;
+  logEl.appendChild(div);
+}
+
+// Intercept errors
+window.onerror = function(msg, url, line, col, error) {
+  const div = document.createElement('div');
+  div.className = 'error';
+  div.textContent = '[ERROR] Line ' + line + ':' + col + ' — ' + msg;
+  logEl.appendChild(div);
+  return false;
+};
+
+log('Attempting to load script.js...', 'info');
+
+try {
+  var script = document.createElement('script');
+  script.src = 'script.js';
+  script.onload = function() {
+    log('script.js loaded successfully!', 'ok');
+    log('Checking key objects...', 'info');
+
+    if (typeof QUESTIONS !== 'undefined') {
+      log('QUESTIONS: ' + QUESTIONS.length + ' items', 'ok');
+      log('Q1: ' + QUESTIONS[0].question, 'info');
+      log('Q1 options: ' + QUESTIONS[0].options.length, 'info');
+    } else {
+      log('QUESTIONS is undefined!', 'error');
+    }
+
+    if (typeof CLUBS !== 'undefined') {
+      log('CLUBS: ' + CLUBS.length + ' items', 'ok');
+    } else {
+      log('CLUBS is undefined!', 'error');
+    }
+
+    if (typeof STATE !== 'undefined') {
+      log('STATE: defined', 'ok');
+    } else {
+      log('STATE is undefined!', 'error');
+    }
+
+    if (typeof btnStart !== 'undefined') {
+      log('btnStart: found (' + btnStart.tagName + ')', 'ok');
+    } else {
+      log('btnStart is undefined!', 'error');
+    }
+
+    if (typeof startNewQuiz === 'function') {
+      log('startNewQuiz: function exists', 'ok');
+    } else {
+      log('startNewQuiz is not a function!', 'error');
+    }
+
+    if (typeof init === 'function') {
+      log('init: function exists', 'ok');
+    } else {
+      log('init is not a function!', 'error');
+    }
+
+    log('=== Debug complete ===', 'ok');
+  };
+  script.onerror = function() {
+    log('Failed to load script.js (404 or network error)', 'error');
+  };
+  document.head.appendChild(script);
+} catch(e) {
+  log('Exception: ' + e.message, 'error');
+}
+</script>
+</body>
+</html>
